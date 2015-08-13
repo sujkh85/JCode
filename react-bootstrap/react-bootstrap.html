@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>Hello React</title>
+    <!-- <script src="https://fb.me/react-0.13.3.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <!-- In-browser JSX transformer, remove when pre-compiling JSX. -->
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="./js/react-bootstrap.min.js"></script>
+    <script src="./roomManager.js"></script>
+        <script>
+        //Please declaration for react-bootstrap
+        var PanelGroup = ReactBootstrap.PanelGroup;
+        var Panel = ReactBootstrap.Panel;
+        </script>
+</head>
+<body>
+<div id="content"></div>
+<div id="content1"></div>
+<script type="text/jsx">
+        const panelGroupInstance = (
+  <PanelGroup defaultActiveKey='2' accordion>
+    <Panel header='Panel 1' eventKey='1'>Panel 1 content</Panel>
+    <Panel header='Panel 2' eventKey='2'>Panel 2 content</Panel>
+  </PanelGroup>
+);
+
+React.render(panelGroupInstance,  document.getElementById('content'));
+
+</script>
+
+<script type="text/jsx">
+    var Input = React.createClass({
+    getInitialState: function() {
+      return {value: 'Hello!'};
+    },
+    handleChange: function(event) {
+      this.setState({value: event.target.value});
+    },
+    render: function () {
+      var value = this.state.value;
+      return (
+        <div>
+          <input type="text" value={value} onChange={this.handleChange} id="test1" disabled/>
+          <p>{value}</p>
+        </div>
+      );
+    }
+  });
+
+  React.render(<Input/>, document.getElementById('content1'));
+</script>
+
+</body>
+</html>

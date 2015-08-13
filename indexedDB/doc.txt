@@ -1,0 +1,42 @@
+Chrome test done 2015.08.06
+
+IDBSetting
+
+Match the length of the index and unique.
+
+IDBname : string
+
+version : int ( > 0 )
+
+tableName : string
+
+keyPath : string
+
+autoIncrement : boolean
+
+index : stringArr
+
+unique : boolean
+IDBFuncSet
+
+Insert the object, or an array function
+
+object, or an array the data is entered.
+
+addData: function(tableName, object)
+
+putData: function(tableName, object)
+
+getKeyData: function(dataObject, tableName, key)
+
+getIndexData: function(dataObject, tableName, indexed, searchData)
+
+tableLowCounter: function(countObject, tableName)
+
+getAllData: function(arr, tableName)
+
+deleteData: function(tableName, key)
+
+allDeleteData: function(tableName)
+
+deleteDatabase: function(indexedDBName)
