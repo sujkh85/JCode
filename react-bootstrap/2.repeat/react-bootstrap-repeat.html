@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>Hello React</title>
+    <!-- <script src="https://fb.me/react-0.13.3.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <!-- In-browser JSX transformer, remove when pre-compiling JSX. -->
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/react-bootstrap.min.js"></script>
+        <script>
+        //Please declaration for react-bootstrap
+        var PanelGroup = ReactBootstrap.PanelGroup;
+        var Panel = ReactBootstrap.Panel;
+        </script>
+</head>
+<body>
+<div id="content"></div>
+
+<script type="text/jsx">
+var actionkey = '1';
+var dataArr = [{
+  key : '1',
+  text : "hello1",
+  title: "title1"
+},
+{
+  key : '2',
+  text : "hello2",
+  title: "title2"
+}
+];
+
+var Repeat = React.createClass({
+  render : function(){
+    var data = this.props.items;
+    return(
+        <PanelGroup defaultActiveKey={actionkey} accordion >
+           { data.map(function(item){
+            return(
+              <Panel header={item.title} eventKey={item.key} >
+                {item.text}
+              </Panel>
+              );
+           })}
+        </PanelGroup>
+      );
+  }
+
+});
+
+  React.render(
+    <div>
+    <Repeat items={ dataArr }/>
+    </div>,
+    document.getElementById('content')
+    );
+
+</script>
+
+
+</body>
+</html>

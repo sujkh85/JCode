@@ -9,7 +9,7 @@
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
     <link rel="stylesheet" href="./bootstrap.css">
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script src="./react-bootstrap.min.js"></script>
+    <script src="../js/react-bootstrap.min.js"></script>
         <script>
         //Please declaration for react-bootstrap
         var PanelGroup = ReactBootstrap.PanelGroup;
@@ -20,7 +20,6 @@
 <div id="content"></div>
 
 <script type="text/jsx">
-var actionkey = '1';
 var dataArr = [{
   key : '1',
   text : "hello1",
@@ -37,7 +36,7 @@ var Repeat = React.createClass({
   render : function(){
     var data = this.props.items;
     return(
-        <PanelGroup defaultActiveKey={actionkey} accordion >
+        <PanelGroup accordion >
            { data.map(function(item){
             return(
               <Panel header={item.title} eventKey={item.key} >
@@ -51,13 +50,28 @@ var Repeat = React.createClass({
 
 });
 
+function startReact(){
   React.render(
     <div>
     <Repeat items={ dataArr }/>
     </div>,
     document.getElementById('content')
     );
+}
 
+startReact();
+
+function dataChange(){
+  dataArr.push({
+    key : '3',
+    text : "hello3",
+    title: "title3"
+  });
+
+  startReact();
+}
+
+setTimeout("dataChange()",3000);
 </script>
 
 
