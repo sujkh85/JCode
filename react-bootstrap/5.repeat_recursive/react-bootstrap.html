@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>Hello React</title>
+    <!-- <script src="https://fb.me/react-0.13.3.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <!-- In-browser JSX transformer, remove when pre-compiling JSX. -->
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="../js/react-bootstrap.min.js"></script>
+        <script>
+        //Please declaration for react-bootstrap
+        var PanelGroup = ReactBootstrap.PanelGroup;
+        var Panel = ReactBootstrap.Panel;
+        </script>
+</head>
+<body>
+<div id="content"></div>
+<div id="example"></div>
+<div id="example1"></div>
+<script type="text/jsx">
+var dataArr = [{
+  key : '1',
+  text : "hello1",
+  title: "title1"
+},
+{
+  key : '2',
+  text : "hello2",
+  title: "title2"
+},
+{
+  key : '3',
+  text : "hello3",
+  title: "title3"
+}
+];
+
+var Repeat = React.createClass({
+  render : function(){
+    var data = this.props.items;
+    return(
+        <PanelGroup accordion >
+            {
+              data.forEach(function(items){
+                items.title = items.title + 'change title ';
+                //items.key++;
+                items.text = items.text + "add data ";
+              })
+            }
+
+           { data.map(function(item){
+            return(
+              <Panel header={item.title} eventKey={item.key} >
+                {item.text}
+              </Panel>
+              );
+           })}
+        </PanelGroup>
+      );
+  }
+
+});
+
+function startReact(){
+  React.render(
+    <div>
+    <Repeat items={ dataArr }/>
+    </div>,
+    document.getElementById('content')
+    );
+}
+
+startReact();
+
+function dataChange(){
+  console.log("in");
+  dataArr.push({
+    key : '4',
+    text : "hello4",
+    title: "title4"
+  });
+
+  startReact();
+}
+
+var controller = {};
+controller.repeatTime = 1000;
+controller.breakTime = 20000;
+controller.IntervalTime = 1000;
+
+!function repeater(){
+  if(controller.repeatTime > controller.breakTime){
+    return false ;
+  }
+
+  controller.repeatTime = controller.repeatTime + controller.IntervalTime;
+  setTimeout("dataChange()", controller.repeatTime);
+  repeater();
+}();
+
+
+
+/*var Repeater = React.createClass({
+    getInitialState: function() {
+        return {
+           data: dataArr
+        }
+    },
+
+    componentDidMount: function() {
+        setInterval(function() {
+              // update the dataArr
+              this.setState({data: dataArr});
+       }.bind(this),2000);
+    },
+    render : function() {
+             return (
+                 <div>
+                    <Repeat items={ dataArr }/>
+                 </div>
+             );
+    }
+});
+
+React.render(
+  <Repeater />,
+  document.getElementById('example1')
+);*/
+</script>
+
+
+</body>
+</html>
