@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset-"utf-8">
+        <title>test page</title>
+        <script src="./underscore.js"></script>
+</head>
+<body>
+        <script>
+//each
+        function testConsoleLog(val){
+                return val * 3;
+        }
+        var arr1 = [1, 2, 3];
+                _.each(arr1, testConsoleLog);
+                console.log(arr1);
+//map
+                console.log("map")
+                _.map([1, 2, 3], function(num){ return console.log(num * 3),num * 3; });
+                console.log("map")
+//reduce
+                console.log("reduce");
+                var sum = _.reduce([2, 3, 4], function(mem, num){ return console.log(num),mem + num; }, "1");
+                console.log(sum);
+                console.log("reduce");
+//contains
+                console.log("contains");
+                var contains = _.contains([1, 2, 3], 3);
+                console.log(contains);
+                console.log("contains");
+//reject
+                console.log("contains");
+                var odds = _.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+                console.log(odds);
+                console.log("contains");
+//filter
+                console.log("filter");
+                var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+                console.log(evens);
+                console.log("filter");
+//invoke
+                console.log("invoke");
+                var invokeArr = [5, 1, 7];
+                console.log(invokeArr);
+                _.invoke([invokeArr, [3, 2, 1]], 'sort');
+                console.log(invokeArr);
+                console.log("invoke");
+//max
+                console.log("max");
+                var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+                var maxVal = _.max(stooges, function(stooge){ return stooge.age; });
+                console.log(maxVal);
+                var maxArr = [1,2,100,30];
+                var maxVal2 = _.max(maxArr);
+                console.log(maxVal2);
+                console.log("max");
+//size
+                console.log("size");
+                var sizeVal = _.size({one: 1, two: 2, three: 3, tt : 100});
+                console.log(sizeVal);
+                console.log("size");
+//zip
+                console.log("zip");
+                var zip = _.zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]);
+                console.log(zip);
+                console.log("zip");
+        </script>
+
+</body>
+</html>
