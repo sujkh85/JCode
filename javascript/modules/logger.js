@@ -6,7 +6,6 @@
 *    message : string
 */
 function logger(level, message){
-  //필요변수 선언
   var info = {
     pre : '%c [INFO] ',
     color : 'color: green'
@@ -28,7 +27,7 @@ function logger(level, message){
     color : 'color: black'
   }
 
-  //유효성 검사
+  //Validate
   typeof level === 'string' && typeof message === 'string' ? true : !function(){
     console.log(error.pre + 'logger type error' , error.color);
   }();
