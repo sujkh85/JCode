@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset-"utf-8">
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <title>test page</title>
+</head>
+<body>
+  <div id='mouseEvent' value='value_of_div'>
+   mouseEvent click me
+  </div>
+
+  <div>
+    <div id='mouseEvent2'>mouseEvent2 click me</div>
+    <input type='hidden' value='input_hidden_value' >
+    <div></div>
+  </div>
+  <script>
+  $('#mouseEvent').click(function(event){
+    console.log(event.currentTarget.getAttribute('value'));
+  });
+  $('#mouseEvent2').click(function(){
+   console.log(event.currentTarget.parentNode.lastChild.previousSibling.previousSibling.previousSibling.value);
+  });
+    //마우스 이벤트 현재노드의  부모노드       마지막자식에서 한칸위의 value값을 가저온다.
+    //event.currentTarget.parentNode.lastChild.previousSibling.value
+    //마우스 이벤트의 현재노드의 속성중 value의 값을 가저온다.
+    //event.currentTarget.getAttribute('value')
+  </script>
+
+</body>
+</html>
