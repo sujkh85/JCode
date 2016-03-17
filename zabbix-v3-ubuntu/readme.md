@@ -2,25 +2,20 @@
 
 #zabbix(v3.0) install for ubuntu#
 
----------
 
 ###command line###
 
-     chmod 755 ZabbixServerInstallUbuntu.sh
+    chmod 755 ZabbixServerInstallUbuntu.sh
 
-     ./ZabbixServerInstallUbuntu.sh
+    ./ZabbixServerInstallUbuntu.sh
 
-----------
 
-##if running shell script ask mysql root password##
+###if running shell script ask mysql root password###
 
-----------
+    Enter the following : root
 
-Enter the following : root
+    again : root
 
-again : root
-
----------
 
 producer Lee, Seungwoo
 
