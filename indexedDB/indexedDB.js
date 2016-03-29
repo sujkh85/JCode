@@ -9,6 +9,8 @@ if (!indexedDB) {
 }
 
 //simple indexedDB lib
+//if you want quick view
+//recommend the following bottom test code
 
 //Arr init
 var dataArr = {};
@@ -344,5 +346,5 @@ IDBFuncSet.addData("Contact", {
 IDBFuncSet.getAllData(dataArr.Record , "Record");
 IDBFuncSet.getAllData(dataArr.Contact , "Contact");
 
-
-
+//if you show indexedDB
+//chrome Developer Tool  > resources > indexedDB
