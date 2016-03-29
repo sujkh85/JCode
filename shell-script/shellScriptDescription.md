@@ -1,3 +1,49 @@
+shellscript
+-----------
+    #!/bin/bash
+
+    echo "======================"
+    echo "Install 3rd parties for Node.js.........."
+    echo "======================"
+    sudo apt-get update
+    sudo apt-get install -y build-essential curl libssl-dev git
+
+    echo "======================"
+    echo "Node source 4.x......."
+    echo "======================"
+    sudo curl -sL https://deb.nodesource.com/setup_4.x | bash -
+
+    echo "======================"
+    echo "Node.js..............."
+    echo "======================"
+    sudo apt-get install -y nodejs
+
+
+    echo "======================"
+    echo "Install bower........."
+    echo "======================"
+    sudo npm install -g bower
+
+
+    echo "======================"
+    echo "Install gulp.........."
+    echo "======================"
+    sudo npm install -g gulp
+
+
+    echo "======================"
+    echo "Install packages on /vagrant......"
+    echo "======================"
+    cd /vagrant/frontend
+    sudo npm install
+
+    echo "======================"
+    echo "Install bower packages on /vagrant....."
+    echo "======================"
+    cd /vagrant/frontend
+    sudo bower install --allow-root --config.interactive=false
+
+
 shellscript Description
 -------
 
