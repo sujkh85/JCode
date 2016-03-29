@@ -1,4 +1,6 @@
-shellscript
+파일명 node-bootstrap.sh
+
+SHELLSCRIPT
 -----------
     #!/bin/bash
 
@@ -44,10 +46,10 @@ shellscript
     sudo bower install --allow-root --config.interactive=false
 
 
-shellscript Description
+SHELLSCRIPT DESCRIPTION
 -------
 
-파일명 shellscript.sh
+
 
     #!/bin/bash
 
